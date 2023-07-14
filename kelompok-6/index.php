@@ -40,16 +40,10 @@ if (isset($_POST["cari"])) {
 
     <ul class="nav nav-underline">
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.php">Beranda</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="tambah.php">Tambah Data</a>
+            <a class="nav-link" aria-current="page" href="index.php">Daftar Karyawan</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="registrasi.php">Registrasi</a>
-        </li>
-        <li class="nav-item">
-            <a class="btn btn-outline-danger" href="logout.php">logout</a>
         </li>
     </ul>
 
@@ -58,12 +52,16 @@ if (isset($_POST["cari"])) {
     <h2>Daftar Karyawan</h2>
 
     <div class="row g-4">
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
             <form action="" method="post" class="d-flex">
                 <input type="text" name="keyword" placeholder="Masukan yang anda cari .." autocomplete="off" autofocus class="form-control me-2">
                 <button type="submit" name="cari" class="btn btn-outline-success me-2">Cari</button>
             </form>
         </div>
+    </div>
+
+    <div class="mb-3">
+        <a class="btn btn-primary" href="tambah.php">Tambah Data</a>
     </div>
 
     <table class="table table-hover">
@@ -118,6 +116,7 @@ if (isset($_POST["cari"])) {
             <!-- akhir pengulangan  -->
         <?php endforeach; ?>
     </table>
+    <a class="btn btn-outline-danger" href="logout.php">logout</a>
 </body>
 
 </html>

@@ -45,10 +45,7 @@ if (isset($_POST["register"])) {
 
     <ul class="nav nav-underline">
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.php">Beranda</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="tambah.php">Tambah Data</a>
+            <a class="nav-link" aria-current="page" href="index.php">Daftar Karyawan</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="registrasi.php">Registrasi</a>
@@ -57,28 +54,34 @@ if (isset($_POST["register"])) {
 
     <div class="mb-3"></div>
 
-    <h1>Halaman Registrasi</h1>
+    <div class="card" style="width: 22rem;">
+        <div class="card-body">
+            <h5 class="card-title text-primary text-center">Registrasi user</h5>
+            <hr>
 
-    <form action="" method="post">
-        <div>
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input class="form-control" type="text" name="username" id="username" required>
-            </div>
-            <div class="mb-3">
-                <label for="pass" class="form-label">Password</label>
-                <input class="form-control" type="password" name="pass" id="pass" required>
-            </div>
-            <div class="mb-3">
-                <label for="pass2" class="form-label">Konfirmasi Password</label>
-                <input class="form-control" type="text" name="pass2" id="pass2" required>
-            </div>
-            <div class="mb-3">
-                <button class="btn btn-primary" type="submit" name="register">Register</button>
-            </div>
+            <form action="" method="post">
+                <div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input class="form-control" type="text" name="username" id="username" pattern="[a-z]{1,10}" title="data harus berisi huruf kecil maks. 1-10 karakter " autocomplete="off" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pass" class="form-label">Password</label>
+                        <input class="form-control" type="password" name="pass" id="pass" pattern="[0-9]{6}" title="data harus berisi angka 6 karakter" autocomplete="off" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pass2" class="form-label">Konfirmasi Password</label>
+                        <input class="form-control" type="text" name="pass2" id="pass2" pattern="[0-9]{6}" autocomplete="off" required>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-primary" type="submit" name="register">Register</button>
+                    </div>
+                </div>
+            </form>
+
         </div>
+    </div>
 
-    </form>
 
 </body>
 

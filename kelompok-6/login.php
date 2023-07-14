@@ -3,7 +3,7 @@
 session_start();
 
 // kalo udah pernah login
-if(isset($_SESSION["login"])){
+if (isset($_SESSION["login"])) {
     header("location: index.php");
     exit;
 }
@@ -57,32 +57,38 @@ if (isset($_POST["login"])) {
 </head>
 
 <body class="container-fluid">
-    <h1>Halaman login</h1>
-    <hr class="border border-secondary border-1 opacity-100">
 
-    <!-- untuk menampilkan tulisan errror ngambil dari error diatas yg akhir -->
-    <?php if (isset($error)) :  ?>
-        <div class="alert alert-danger" role="alert">
-            Username/Password salah!
+    <div class="mb-3"></div>
+
+    <div class="card" style="width: 18rem;">
+
+        <!-- untuk menampilkan tulisan errror ngambil dari error diatas yg akhir -->
+        <?php if (isset($error)) :  ?>
+            <div class="alert alert-danger" role="alert">
+                Username/Password salah!
+            </div>
+        <?php endif; ?>
+
+        <div class="card-body">
+            <h5 class="card-title text-primary text-center">Login</h5>
+            <hr>
+            <form action="" method="post">
+                <div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input class="form-control" type="text" name="username" autocomplete="off" id="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pass" class="form-label">Password</label>
+                        <input class="form-control" type="password" name="pass" autocomplete="off" id="pass" required>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-primary" type="submit" name="login">Login</button>
+                    </div>
+                </div>
+            </form>
         </div>
-    <?php endif; ?>
-
-    <form action="" method="post">
-        <div>
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input class="form-control" type="text" name="username" id="username" required>
-            </div>
-            <div class="mb-3">
-                <label for="pass" class="form-label">Password</label>
-                <input class="form-control" type="password" name="pass" id="pass" required>
-            </div>
-            <div class="mb-3">
-                <button class="btn btn-primary" type="submit" name="login">Login</button>
-            </div>
-        </div>
-
-    </form>
+    </div>
 
 </body>
 

@@ -54,10 +54,7 @@ if (isset($_POST["submit"])) {
 
     <ul class="nav nav-underline">
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.php">Beranda</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="tambah.php">Tambah Data</a>
+            <a class="nav-link" aria-current="page" href="index.php">Daftar Karyawan</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="registrasi.php">Registrasi</a>
@@ -66,36 +63,57 @@ if (isset($_POST["submit"])) {
 
     <div class="mb-3"></div>
 
-    <h1>Tambah data karyawan</h1>
+    <div class="card" style="width: 22rem;">
+        <div class="card-body">
+            <h5 class="card-title text-primary text-center">Tambah data</h5>
+            <hr>
 
-    <form action="" method="post">
+            <form action="" method="post">
 
-        <div>
-            <div class="mb-3">
-                <label for="nik" class="form-label">Nomor Induk Karyawan (NIK)</label>
-                <input class="form-control" type="text" name="nik" id="nik" required>
-            </div>
-            <div class="mb-3">
-                <label for="nama" class="form-label">Nama Lengkap</label>
-                <input class="form-control" type="text" name="nama" id="nama" required>
-            </div>
-            <div class="mb-3">
-                <label for="jabatan" class="form-label">Jabatan</label>
-                <input class="form-control" type="text" name="jabatan" id="jabatan" required>
-            </div>
-            <div class="mb-3">
-                <label for="bag" class="form-label">Bagian</label>
-                <input class="form-control" type="text" name="bag" id="bag" required>
-            </div>
-            <div class="mb-3">
-                <label for="tglmasuk" class="form-label">Tanggal Masuk</label>
-                <input class="form-control" type="date" name="tglmasuk" id="tglmasuk" value="<?= $karyawan["tglmasuk"]; ?>" required>
-            </div>
-            <div class="mb-3">
-                <button class="btn btn-primary" type="submit" name="submit">Tambah</button>
-            </div>
+                <input type="hidden" name="id">
+
+                <div class="mb-3">
+                    <label for="nik" class="form-label">Nomor Induk Karyawan (NIK)</label>
+                    <input class="form-control" type="text" name="nik" id="nik" pattern="[0-9]{7}" title="Data harus diisi angka, dan 7 karakter" required>
+                </div>
+                <div class="mb-3">
+                    <label for="nama" class="form-label">Nama Lengkap</label>
+                    <input class="form-control" type="text" name="nama" id="nik" pattern="[A-Z ]{1,25}" title="Data hanya bisa diisi huruf besar mks. 1-25 karakter" required>
+                </div>
+                <div class="mb-3">
+                    <select name="jabatan" class="form-select form-select-lg mb-3" required>
+                        <option selected disabled>Pilih Jabatan</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Koordinator">Koordinator</option>
+                        <option value="Supervisor">Supervisor</option>
+                        <option value="Staff">Staff</option>
+                        <option value="Non Jabatan">Non Jabatan</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select name="bag" class="form-select form-select-lg mb-3" required>
+                        <option selected disabled>Pilih Bagian</option>
+                        <option value="Management">Management</option>
+                        <option value="Accounting">Accounting</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Administrasi">Administrasi</option>
+                        <option value="Research and Development">Research and Development</option>
+                        <option value="Maintenance">Maintenance</option>
+                        <option value="Warehouse">Warehouse</option>
+                        <option value="Produksi">Produksi</option>
+                        <option value="PPIC">PPIC</option>
+                        <option value="Office Boy">Office Boy</option>
+                </div>
+                <div class="mb-3">
+                    <label for="tglmasuk" class="form-label">Tanggal Masuk</label>
+                    <input class="form-control" type="date" name="tglmasuk" id="tglmasuk" value="<?= $karyawan["tglmasuk"]; ?>" required>
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit" name="submit">Tambah</button>
+                </div>
+
+            </form>
         </div>
-    </form>
 </body>
 
 </html>

@@ -26,6 +26,7 @@ function tambah($data)
     global $conn;
 
     // masuk dulu ke fungsi ini >>> htmlspecialchars
+    $id = ($data["id"]);
     $nik = htmlspecialchars($data["nik"]);
     $nama = htmlspecialchars($data["nama"]);
     $jabatan = htmlspecialchars($data["jabatan"]);
@@ -55,7 +56,7 @@ function ubah($data)
     global $conn;
 
     // masuk dulu ke fungsi ini >>> htmlspecialchars
-    $id = $data["id"];
+    $id = ($data["id"]);
     $nik = htmlspecialchars($data["nik"]);
     $nama = htmlspecialchars($data["nama"]);
     $jabatan = htmlspecialchars($data["jabatan"]);
@@ -135,3 +136,4 @@ function registrasi($data)
 
     return mysqli_affected_rows($conn);
 }
+
